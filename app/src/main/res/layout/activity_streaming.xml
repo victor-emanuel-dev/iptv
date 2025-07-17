@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/player_background"
+    android:fitsSystemWindows="false">
+
+    <!-- Video Player - Lado Esquerdo (60%) -->
+    <FrameLayout
+        android:id="@+id/playerContainer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="60"
+        android:background="@color/player_background"
+        android:padding="0dp"
+        android:layout_margin="0dp">
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            app:use_controller="false"
+            app:show_buffering="when_playing"
+            app:surface_type="texture_view"
+            app:resize_mode="fill" />
+
+        <!-- Controles overlay -->
+        <LinearLayout
+            android:id="@+id/playerOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/overlay_background"
+            android:alpha="0"
+            android:visibility="gone"
+            android:padding="0dp"
+            android:layout_margin="0dp">
+
+            <!-- Top controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnSkipChannel"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle_background_dark"
+                    android:src="@drawable/ic_skip_next"
+                    android:contentDescription="Próximo Canal"
+                    android:scaleType="center"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btnFullScreen"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle_background_dark"
+                    android:src="@drawable/ic_fullscreen"
+                    android:contentDescription="Tela Cheia"
+                    android:scaleType="center"
+                    android:layout_marginEnd="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Bottom controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/circle_background_white"
+                    android:src="@drawable/ic_pause"
+                    android:contentDescription="Play/Pause"
+                    android:scaleType="center"
+                    android:layout_marginEnd="16dp" />
+
+                <ImageButton
+                    android:id="@+id/btnMute"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle_background_dark"
+                    android:src="@drawable/ic_volume_up"
+                    android:contentDescription="Mudo"
+                    android:scaleType="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Progress indicator -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone"
+            android:layout_margin="0dp" />
+    </FrameLayout>
+
+    <!-- Painel Lateral - Lado Direito (40%) - Lista de Canais -->
+    <LinearLayout
+        android:id="@+id/sidePanel"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="40"
+        android:orientation="vertical"
+        android:background="@color/panel_background"
+        android:layout_marginStart="-8dp"
+        android:fitsSystemWindows="true"
+        android:paddingEnd="16dp">
+
+        <!-- Header com logo e navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/surface_dark"
+            android:paddingLeft="8dp"
+            android:paddingRight="32dp"
+            android:paddingVertical="8dp">
+
+            <!-- Logo e nome COM ENGRENAGEM -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivAppLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/logo"
+                    android:contentDescription="@string/app_logo"
+                    android:scaleType="fitCenter"
+                    android:layout_marginStart="8dp" />
+
+                <TextView
+                    android:id="@+id/tvAppName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Cinema Elite Player"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:maxLines="1" />
+
+                <!-- ENGRENAGEM DE CONFIGURAÇÕES -->
+                <ImageButton
+                    android:id="@+id/btnAdminAccess"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_settings"
+                    android:contentDescription="Configurações Admin"
+                    android:scaleType="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:tint="@color/primary_color" />
+            </LinearLayout>
+
+            <!-- Tabs de navegação -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tabChannels"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Canais"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@color/primary_color" />
+
+                <TextView
+                    android:id="@+id/tabInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Info"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@color/button_background"
+                    android:layout_marginStart="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Conteúdo principal -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- SEÇÃO DE CANAIS - SEM BANNER PREMIUM -->
+            <LinearLayout
+                android:id="@+id/channelsSection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Lista de Canais - OCUPA TODO O ESPAÇO -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerChannels"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/panel_background" />
+            </LinearLayout>
+
+            <!-- Painel de Informações -->
+            <ScrollView
+                android:id="@+id/infoPanel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:paddingLeft="8dp"
+                android:paddingRight="32dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:background="@color/panel_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Canal Atual -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/card_background"
+                        android:padding="16dp"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CANAL ATUAL"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/tvChannelName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/tvChannelDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:layout_marginBottom="8dp" />
+
+                        <!-- Status ao vivo -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@color/background_dark"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp">
+
+                            <View
+                                android:layout_width="6dp"
+                                android:layout_height="6dp"
+                                android:background="@color/error_color"
+                                android:layout_marginEnd="6dp" />
+
+                            <TextView
+                                android:id="@+id/tvStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔄 Carregando..."
+                                android:textColor="@color/error_color"
+                                android:textStyle="bold"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Estatísticas -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/background_dark"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TRANSMISSÃO"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Qualidade: Automática\nProtocolo: HLS/HTTP\nBuffer: Adaptativo"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

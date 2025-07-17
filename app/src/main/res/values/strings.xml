@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cinema Elite Player</string>
+    <string name="epic_cinema_pro">Cinema Elite Player</string>
+    <string name="sua_tv_onde_quiser">Seu player de TV</string>
+    <string name="app_logo">Logo do Cinema Elite Player</string>
+
+    <!-- Tela de Login -->
+    <string name="login_title">Entrar</string>
+    <string name="create_account_title">Criar Conta</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Senha</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="login_button">ENTRAR</string>
+    <string name="register_button">CRIAR CONTA</string>
+    <string name="app_subtitle">Sua TV, onde quiser</string>
+    <string name="no_account">Não tem conta? </string>
+    <string name="create_account_link">Criar uma agora</string>
+
+    <!-- Validações -->
+    <string name="email_required">Email é obrigatório</string>
+    <string name="password_required">Senha é obrigatória</string>
+    <string name="password_min_length">Senha deve ter pelo menos 6 caracteres</string>
+    <string name="invalid_email">Email inválido</string>
+
+    <!-- Mensagens de sucesso -->
+    <string name="account_created">Conta criada com sucesso!</string>
+    <string name="login_success">Login realizado com sucesso!</string>
+    <string name="password_reset_sent">Email de recuperação enviado!</string>
+
+    <!-- Mensagens de erro -->
+    <string name="login_error">Erro no login: %s</string>
+    <string name="register_error">Erro ao criar conta: %s</string>
+    <string name="password_reset_error">Erro ao enviar email: %s</string>
+    <string name="player_error">Erro ao reproduzir: %s</string>
+    <string name="network_error">Erro de conexão. Verifique sua internet.</string>
+
+    <!-- Tela de Streaming -->
+    <string name="current_channel">Canal Atual</string>
+    <string name="live_status">Ao vivo</string>
+    <string name="loading_status">Carregando...</string>
+    <string name="transmission_ended">Transmissão finalizada</string>
+    <string name="transmission_error">Erro na transmissão</string>
+    <string name="controls_title">Controles</string>
+    <string name="available_channels">Canais Disponíveis</string>
+    <string name="logout_button">Sair</string>
+    <string name="demo_version">Versão Demo - NASA TV</string>
+
+    <!-- Controles do Player -->
+    <string name="play_button">▶</string>
+    <string name="pause_button">⏸</string>
+    <string name="mute_button">🔇</string>
+    <string name="unmute_button">🔊</string>
+    <string name="fullscreen">Tela cheia</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="mute_unmute">Mute/Unmute</string>
+    <string name="live">Ao vivo</string>
+
+    <!-- Canal NASA -->
+    <string name="nasa_channel_name">NASA TV</string>
+    <string name="nasa_channel_description">Canal oficial da NASA - Transmissão ao vivo</string>
+
+    <!-- Acessibilidade -->
+    <string name="logo_description">Logo do Cinema Elite Player</string>
+    <string name="email_icon_description">Ícone de email</string>
+    <string name="password_icon_description">Ícone de senha</string>
+    <string name="live_indicator_description">Indicador de transmissão ao vivo</string>
+    <string name="play_pause_description">Botão de reproduzir/pausar</string>
+    <string name="mute_description">Botão de silenciar/ativar som</string>
+
+    <!-- Erros específicos do Firebase -->
+    <string name="auth_error_invalid_email">Email inválido</string>
+    <string name="auth_error_user_not_found">Usuário não encontrado</string>
+    <string name="auth_error_wrong_password">Senha incorreta</string>
+    <string name="auth_error_weak_password">Senha muito fraca</string>
+    <string name="auth_error_email_already_in_use">Email já está em uso</string>
+    <string name="auth_error_network">Erro de rede. Tente novamente.</string>
+
+    <!-- Loading states -->
+    <string name="please_wait">Aguarde...</string>
+    <string name="loading">Carregando</string>
+    <string name="connecting">Conectando</string>
+    <string name="buffering">Carregando buffer</string>
+
+    <!-- Player states -->
+    <string name="player_ready">Pronto para reproduzir</string>
+    <string name="player_buffering">Carregando buffer...</string>
+    <string name="player_ended">Reprodução finalizada</string>
+    <string name="player_idle">Player inativo</string>
+
+    <!-- Admin -->
+    <string name="admin_access">Acesso Administrativo</string>
+    <string name="configuration">Configuração</string>
+
+    <!-- General -->
+    <string name="back">Voltar</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+
+    <!-- Channels -->
+    <string name="channels">Canais</string>
+    <string name="channel_info">Informações do Canal</string>
+    <string name="no_channels">Nenhum canal disponível</string>
+    <string name="loading_channels">Carregando canais...</string>
+
+    <!-- IPTV -->
+    <string name="iptv_config">Configuração IPTV</string>
+    <string name="playlist_url">URL da Playlist</string>
+    <string name="server_host">Servidor/Host</string>
+    <string name="username">Usuário</string>
+    <string name="password">Senha</string>
+
+    <!-- Status Messages -->
+    <string name="connection_successful">Conexão bem-sucedida!</string>
+    <string name="connection_failed">Falha na conexão</string>
+    <string name="config_saved">Configuração salva com sucesso</string>
+    <string name="channels_updated">Canais atualizados</string>
+
+    <!-- Errors -->
+    <string name="error_loading_playlist">Erro ao carregar playlist</string>
+    <string name="error_invalid_url">URL inválida</string>
+    <string name="error_network">Erro de rede</string>
+    <string name="error_authentication">Erro de autenticação</string>
+
+    <!-- ========== STRINGS PREMIUM ADICIONADAS ========== -->
+
+    <!-- Premium Pop-up -->
+    <string name="acesso_premium">ACESSO PREMIUM</string>
+    <string name="desbloqueie_conteudos">Desbloqueie todos os conteúdos</string>
+    <string name="premium_subtitle">Entre em contato para ativar seu acesso premium:</string>
+    <string name="premium_footer">🔒 Pagamento seguro • ⚡ Ativação imediata</string>
+
+    <!-- Categorias Premium -->
+    <string name="filmes">FILMES</string>
+    <string name="series">SÉRIES</string>
+    <string name="tv_ao_vivo">TV AO VIVO</string>
+
+    <!-- Botões de Contato -->
+    <string name="whatsapp_01">📱 WhatsApp 01: +55 27 99910-9882</string>
+    <string name="whatsapp_02">📱 WhatsApp 02: +55 27 98891-1261</string>
+    <string name="telegram">✈️ Telegram: +55 27 99509-7169</string>
+    <string name="whatsapp_message">Olá! Gostaria de ativar o acesso premium no Cinema Elite Player</string>
+
+    <!-- Banner Premium -->
+    <string name="premium_banner">👑 ACESSO PREMIUM ⭐⭐⭐⭐⭐</string>
+
+    <!-- Ações Premium -->
+    <string name="fechar">Fechar</string>
+    <string name="abrindo_whatsapp">Abrindo WhatsApp...</string>
+    <string name="abrindo_telegram">Abrindo Telegram...</string>
+    <string name="whatsapp_nao_encontrado">WhatsApp não encontrado. Instalando...</string>
+    <string name="telegram_nao_encontrado">Telegram não encontrado. Instalando...</string>
+
+    <!-- Status de Transmissão -->
+    <string name="carregando">🔄 Carregando...</string>
+    <string name="ao_vivo">📺 AO VIVO</string>
+    <string name="transmissao_finalizada">⏹️ Transmissão finalizada</string>
+    <string name="aguardando">⚠️ Aguardando...</string>
+    <string name="erro_transmissao">❌ Erro na transmissão</string>
+
+    <!-- Controles de Player -->
+    <string name="pausado">⏸️ Pausado</string>
+    <string name="reproduzindo">▶️ Reproduzindo</string>
+    <string name="sem_som">🔇 Sem som</string>
+    <string name="com_som">🔊 Com som</string>
+    <string name="proximo_canal">⏭️ Próximo canal...</string>
+
+    <!-- Admin Strings -->
+    <string name="acesso_administrativo">🔐 Acesso Administrativo</string>
+    <string name="area_restrita">Área restrita para administradores</string>
+    <string name="usuario_administrador">Usuário Administrador</string>
+    <string name="senha_administrador">Senha de Administrador</string>
+    <string name="acessar_administracao">ACESSAR ADMINISTRAÇÃO</string>
+    <string name="demonstracao">💡 DEMONSTRAÇÃO</string>
+
+    <!-- Configurações Admin -->
+    <string name="configuracoes_principais">⚙️ CONFIGURAÇÕES PRINCIPAIS</string>
+    <string name="host_dns">Host/DNS</string>
+    <string name="testar_conexao">🔍 Testar Conexão</string>
+    <string name="salvar_aplicar">💾 Salvar e Aplicar</string>
+
+    <!-- Info do Canal -->
+    <string name="canal_atual">CANAL ATUAL</string>
+    <string name="transmissao">TRANSMISSÃO</string>
+    <string name="qualidade_automatica">Qualidade: Automática</string>
+    <string name="protocolo_hls">Protocolo: HLS/HTTP</string>
+    <string name="buffer_adaptativo">Buffer: Adaptativo</string>
+
+    <!-- Navegação -->
+    <string name="info">Info</string>
+    <string name="administracao">Administração</string>
+
+    <!-- Toasts e Mensagens -->
+    <string name="canais_gratuitos_carregados" formatted="false">%d canais gratuitos carregados</string>
+    <string name="playlist_recebida">📡 %s recebida! Atualizando...</string>
+    <string name="nova_configuracao">🔄 Nova configuração detectada! Carregando...</string>
+    <string name="playlist_atualizada">✅ Playlist atualizada com sucesso!</string>
+
+</resources>

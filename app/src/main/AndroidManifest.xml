@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissões essenciais -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Features opcionais -->
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CinemaElitePlayer"
+        android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        tools:targetApi="33">
+
+        <!-- Activity Principal (Splash + Navegação) -->
+        <activity
+            android:name="com.ivip.cinemaeliteplayer.MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CinemaElitePlayer.Splash"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity de Streaming Premium -->
+        <activity
+            android:name="com.ivip.cinemaeliteplayer.StreamingActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- Activity de Autenticação Admin -->
+        <activity
+            android:name="com.ivip.cinemaeliteplayer.AdminAuthActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
+            android:parentActivityName="com.ivip.cinemaeliteplayer.StreamingActivity" />
+
+        <!-- Activity de Administração -->
+        <activity
+            android:name="com.ivip.cinemaeliteplayer.AdminActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
+            android:parentActivityName="com.ivip.cinemaeliteplayer.AdminAuthActivity" />
+
+        <!-- Activity de Pop-up Premium -->
+        <activity
+            android:name="com.ivip.cinemaeliteplayer.PremiumPopupActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.CinemaElitePlayer.Dialog"
+            android:excludeFromRecents="true" />
+
+        <!-- FileProvider para compartilhamento de arquivos -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

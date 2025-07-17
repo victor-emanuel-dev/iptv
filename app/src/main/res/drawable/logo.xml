@@ -1,0 +1,24 @@
+<!-- logo.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+
+    <!-- Círculo de fundo -->
+    <path
+        android:fillColor="@color/primary_color"
+        android:pathData="M40,5C20.1,5 4,21.1 4,41s16.1,36 36,36s36,-16.1 36,-36S59.9,5 40,5z" />
+
+    <!-- Ícone de play no centro -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M30,25l20,15l-20,15V25z" />
+
+    <!-- Linha decorativa -->
+    <path
+        android:fillColor="@color/white"
+        android:strokeColor="@color/white"
+        android:strokeWidth="2"
+        android:pathData="M20,65h40" />
+</vector>

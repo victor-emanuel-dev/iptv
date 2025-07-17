@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_dark">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header compacto com navegação -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@color/surface_dark"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_arrow_back"
+                    android:contentDescription="Voltar"
+                    android:scaleType="center"
+                    android:layout_marginEnd="8dp"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️ CONFIGURAÇÕES PRINCIPAIS"
+                    android:textColor="@color/primary_color"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- Configurações Obrigatórias -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/card_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Campos Obrigatórios *"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="Host/DNS *"
+                    app:helperText="Ex: seuservidor.com.br"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etHostDns"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="Usuário *"
+                    app:helperText="Ex: 929431775851"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Senha *"
+                    app:helperText="Ex: 028531357846"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/primary_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnTestConnection"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="🔍 Testar Conexão"
+                        android:backgroundTint="@color/secondary_color"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btnSaveConfig"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="💾 Salvar e Aplicar"
+                        android:backgroundTint="@color/primary_color"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Configurações Avançadas -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔧 CONFIGURAÇÕES AVANÇADAS"
+                android:textColor="@color/accent_blue"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/card_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Configurações Opcionais"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Formato da Playlist -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Formato da Playlist:"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgPlaylistFormat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <RadioButton
+                        android:id="@+id/rbFormatTS"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TS (Padrão)"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/primary_color"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/rbFormatHLS"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="HLS"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/primary_color" />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="DNS Alternativo"
+                    app:helperText="Ex: seuservidor.com.br"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAlternativeDns"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Porta"
+                    app:helperText="Padrão: 80"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPort"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="80"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Intervalo de Atualização (min)"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/etUpdateInterval"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="30"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:background="@color/input_background"
+                        android:padding="8dp" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/cbAutoReconnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reconexão Automática"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/primary_color"
+                    android:checked="true"
+                    android:layout_marginBottom="16dp" />
+
+                <CheckBox
+                    android:id="@+id/cbHardwareAcceleration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aceleração por Hardware"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/primary_color"
+                    android:checked="true"
+                    android:layout_marginBottom="20dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnExportConfig"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="📤 Exportar"
+                        android:backgroundTint="@color/accent_purple"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btnClearCache"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="4dp"
+                        android:text="🗑️ Cache"
+                        android:backgroundTint="@color/warning_color"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btnLogout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:text="🚪 Sair"
+                        android:backgroundTint="@color/error_color"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- NOVA SEÇÃO: Adicionar Canais Personalizados -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📺 ADICIONAR CANAIS PERSONALIZADOS"
+                android:textColor="@color/accent_blue"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/card_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adicione canais manualmente"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Nome do Canal"
+                    app:helperText="Ex: Globo, SBT, Record"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etChannelName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="URL do Canal"
+                    app:helperText="Ex: http://exemplo.com/canal.m3u8"
+                    app:helperTextTextColor="@color/text_secondary"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/primary_color"
+                    app:boxBackgroundColor="@color/input_background">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etChannelUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnAddChannel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:text="➕ Adicionar Canal"
+                        android:backgroundTint="@color/success_color"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btnImportPlaylist"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="📥 Importar M3U"
+                        android:backgroundTint="@color/accent_purple"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Exemplo de Configuração -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡 EXEMPLO DE CONFIGURAÇÃO"
+                android:textColor="@color/success_color"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_dark"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dados de Exemplo:"
+                    android:textColor="@color/success_color"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Host/DNS: seuservidor.com.br\nUsuário: 123456\nSenha: 123456\nFormato: TS\nPorta: 80"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="URL Gerada Automaticamente:"
+                    android:textColor="@color/success_color"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvGeneratedUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="http://seuservidor.com.br/get.php?username=username&amp;password=password&amp;type=m3u_plus&amp;output=ts"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace"
+                    android:background="@color/background_dark"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

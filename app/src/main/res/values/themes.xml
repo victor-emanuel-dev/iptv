@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema base para o aplicativo - COMPATÍVEL COM APPCOMPAT -->
+    <style name="Theme.CinemaElitePlayer" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Cores primárias -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color_dark</item>
+        <item name="colorAccent">@color/secondary_color</item>
+
+        <!-- Cores de fundo -->
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+
+        <!-- Configurações da StatusBar -->
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:navigationBarColor">@color/background_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Configurações gerais -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Forçar modo escuro -->
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

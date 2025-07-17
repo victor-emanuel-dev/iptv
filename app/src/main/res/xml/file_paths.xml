@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pasta externa pública para downloads -->
+    <external-path name="external_files" path="."/>
+
+    <!-- Pasta de cache externa -->
+    <external-cache-path name="external_cache" path="."/>
+
+    <!-- Pasta de arquivos internos do app -->
+    <files-path name="internal_files" path="."/>
+
+    <!-- Pasta de cache interno -->
+    <cache-path name="internal_cache" path="."/>
+
+    <!-- Pasta de arquivos externos específicos do app -->
+    <external-files-path name="external_app_files" path="."/>
+</paths>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popupScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/card_background"
+    android:paddingTop="8dp"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal">
+
+        <!-- Botão Fechar -->
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Fechar"
+            android:tint="@color/white"
+            android:scaleType="center" />
+
+        <!-- Coroa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👑"
+            android:textSize="48sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACESSO PREMIUM"
+            android:textColor="@color/gold"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desbloqueie todos os FILMES, SÉRIES e TV AO VIVO"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Linha WhatsApp -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnWhatsApp01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_whatsapp"
+                android:drawablePadding="8dp"
+                android:text="+55 27 99910‑9882"
+                android:backgroundTint="@color/whatsapp_green"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"/>
+
+            <Button
+                android:id="@+id/btnWhatsApp02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_whatsapp"
+                android:drawablePadding="8dp"
+                android:text="+55 27 98891‑1261"
+                android:backgroundTint="@color/whatsapp_green"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Telegram -->
+        <Button
+            android:id="@+id/btnTelegram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_telegram"
+            android:drawablePadding="8dp"
+            android:text="+55 27 99509‑7169"
+            android:backgroundTint="@color/telegram_blue"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+</ScrollView>
