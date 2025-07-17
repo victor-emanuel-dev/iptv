@@ -124,7 +124,7 @@
         android:background="@color/panel_background"
         android:layout_marginStart="-8dp"
         android:fitsSystemWindows="true"
-        android:paddingEnd="16dp">
+        android:paddingEnd="48dp">
 
         <!-- Header com logo e navigation -->
         <LinearLayout
@@ -133,7 +133,7 @@
             android:orientation="vertical"
             android:background="@color/surface_dark"
             android:paddingLeft="8dp"
-            android:paddingRight="32dp"
+            android:paddingRight="48dp"
             android:paddingVertical="8dp">
 
             <!-- Logo e nome COM ENGRENAGEM -->
@@ -174,7 +174,7 @@
                     android:contentDescription="Configurações Admin"
                     android:scaleType="center"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="32dp"
                     android:tint="@color/primary_color" />
             </LinearLayout>
 
@@ -235,16 +235,13 @@
                     android:background="@color/panel_background" />
             </LinearLayout>
 
-            <!-- Painel de Informações -->
+            <!-- Painel de Informações - AJUSTADO PARA OCUPAR TODA A LARGURA -->
             <ScrollView
                 android:id="@+id/infoPanel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
-                android:paddingLeft="8dp"
-                android:paddingRight="32dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
+                android:padding="16dp"
                 android:background="@color/panel_background">
 
                 <LinearLayout
@@ -252,7 +249,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Canal Atual -->
+                    <!-- Canal Atual - OCUPANDO TODA A LARGURA COM MARGEM ADEQUADA -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -272,7 +269,7 @@
 
                         <TextView
                             android:id="@+id/tvChannelName"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:textSize="18sp"
@@ -281,7 +278,7 @@
 
                         <TextView
                             android:id="@+id/tvChannelDescription"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp"
@@ -314,7 +311,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- Estatísticas -->
+                    <!-- Estatísticas - OCUPANDO TODA A LARGURA COM MARGEM ADEQUADA -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

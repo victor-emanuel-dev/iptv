@@ -15,7 +15,7 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:paddingLeft="0dp"
-        android:paddingRight="32dp">
+        android:paddingRight="48dp">
 
         <View
             android:id="@+id/viewLiveIndicator"

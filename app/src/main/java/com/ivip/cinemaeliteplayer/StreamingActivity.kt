@@ -567,15 +567,28 @@ class StreamingActivity : AppCompatActivity() {
             sidePanelParams.leftMargin = -16 // Margem negativa para sobrepor
             binding.sidePanel.layoutParams = sidePanelParams
 
-            // CALCULAR PADDING PARA RESPEITAR BARRAS DO SISTEMA
-            val displayMetrics = resources.displayMetrics
-            val systemBarsPadding = (16 * displayMetrics.density).toInt() // 16dp convertido para px
-            binding.sidePanel.setPadding(8, 0, systemBarsPadding, 0)
+            // USAR WINDOWINSETS PARA CALCULAR PADDING CORRETO
+            binding.sidePanel.setOnApplyWindowInsetsListener { view, insets ->
+                val systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars())
+                val navigationBarWidth = systemBars.right
+                val additionalPadding = (16 * resources.displayMetrics.density).toInt() // 16dp extra
+                val totalRightPadding = navigationBarWidth + additionalPadding
+
+                binding.sidePanel.setPadding(8, 0, totalRightPadding, 0)
+
+                println("StreamingActivity: WindowInsets - navigationBarWidth: $navigationBarWidth, totalPadding: $totalRightPadding")
+
+                insets
+            }
+
+            // FALLBACK: Se WindowInsets não funcionar, usar padding maior
+            val fallbackPadding = (48 * resources.displayMetrics.density).toInt() // 48dp
+            binding.sidePanel.setPadding(8, 0, fallbackPadding, 0)
 
             // FORÇAR ATUALIZAÇÃO DO LAYOUT
             binding.sidePanel.requestLayout()
 
-            println("StreamingActivity: Configurações do sidePanel aplicadas - leftMargin: -16, rightPadding: $systemBarsPadding")
+            println("StreamingActivity: Configurações do sidePanel aplicadas com fallback padding: $fallbackPadding")
         }
     }
 
