@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/card_background"
+    android:background="#1A1A1A"
     android:paddingTop="8dp"
     android:paddingBottom="12dp">
 
@@ -23,9 +23,9 @@
             android:layout_marginEnd="12dp"
             android:layout_marginTop="4dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_close"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
             android:contentDescription="Fechar"
-            android:tint="@color/white"
+            android:tint="@android:color/white"
             android:scaleType="center" />
 
         <!-- Coroa -->
@@ -39,24 +39,26 @@
 
         <!-- Título -->
         <TextView
+            android:id="@+id/tvPremiumTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ACESSO PREMIUM"
-            android:textColor="@color/gold"
+            android:textColor="#FFD700"
             android:textSize="28sp"
             android:textStyle="bold"
             android:layout_marginBottom="6dp" />
 
         <!-- Subtítulo -->
         <TextView
+            android:id="@+id/tvPremiumSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Desbloqueie todos os FILMES, SÉRIES e TV AO VIVO"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Linha WhatsApp -->
+        <!-- Linha WhatsApp 1 e 2 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,11 +69,16 @@
                 android:id="@+id/btnWhatsApp01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_whatsapp"
+                android:background="@drawable/button_whatsapp_rounded"
+                android:drawableLeft="@drawable/ic_whatsapp_small"
                 android:drawablePadding="8dp"
-                android:text="+55 27 99910‑9882"
-                android:backgroundTint="@color/whatsapp_green"
-                android:textColor="@color/white"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="+55 27 97400-2028"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginEnd="10dp"/>
 
@@ -79,26 +86,60 @@
                 android:id="@+id/btnWhatsApp02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_whatsapp"
+                android:background="@drawable/button_whatsapp_rounded"
+                android:drawableLeft="@drawable/ic_whatsapp_small"
                 android:drawablePadding="8dp"
-                android:text="+55 27 98891‑1261"
-                android:backgroundTint="@color/whatsapp_green"
-                android:textColor="@color/white"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="+55 27 99576-8269"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- Telegram -->
-        <Button
-            android:id="@+id/btnTelegram"
+        <!-- Linha WhatsApp 3 e Telegram -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_telegram"
-            android:drawablePadding="8dp"
-            android:text="+55 27 99509‑7169"
-            android:backgroundTint="@color/telegram_blue"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnWhatsApp03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_whatsapp_rounded"
+                android:drawableLeft="@drawable/ic_whatsapp_small"
+                android:drawablePadding="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="+55 27 99752-6988"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="10dp"/>
+
+            <Button
+                android:id="@+id/btnTelegram02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_telegram_rounded"
+                android:drawableLeft="@drawable/ic_telegram_small"
+                android:drawablePadding="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Goldvipinfoprodutos"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
     </LinearLayout>
 

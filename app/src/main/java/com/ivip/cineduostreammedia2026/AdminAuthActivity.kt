@@ -1,4 +1,4 @@
-package com.ivip.cinemaeliteplayer
+package com.ivip.cineduostreammedia2026
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.ivip.cinemaeliteplayer.databinding.ActivityAdminAuthBinding
+import com.ivip.cineduostreammedia2026.databinding.ActivityAdminAuthBinding
 
 class AdminAuthActivity : AppCompatActivity() {
 

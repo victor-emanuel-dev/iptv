@@ -1,4 +1,4 @@
-package com.ivip.cinemaeliteplayer
+package com.ivip.cineduostreammedia2026
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -21,16 +22,18 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.media3.common.MediaItem
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
+import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.hls.HlsMediaSource
-import androidx.media3.datasource.DefaultDataSource
-import com.ivip.cinemaeliteplayer.R
-import com.ivip.cinemaeliteplayer.databinding.ActivityStreamingBinding
-import kotlinx.coroutines.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ivip.cineduostreammedia2026.databinding.ActivityStreamingBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -64,6 +67,10 @@ class StreamingActivity : AppCompatActivity() {
     // Broadcast receivers
     private lateinit var configChangeReceiver: BroadcastReceiver
     private lateinit var globalReceiver: BroadcastReceiver
+
+    // Handler para mostrar pop-up premium após 4 segundos
+    private val premiumPopupHandler = Handler(Looper.getMainLooper())
+    private val showPremiumPopupRunnable = Runnable { showPremiumPopup() }
 
     companion object {
         const val ACTION_CONFIG_CHANGED = "com.ivip.cinemaeliteplayer.CONFIG_CHANGED"
@@ -101,6 +108,87 @@ class StreamingActivity : AppCompatActivity() {
 
         // Verificar se há nova configuração ao iniciar
         checkForNewConfiguration()
+
+        // AGENDAR POP-UP PREMIUM APÓS 4 SEGUNDOS
+        schedulePremiumPopup()
+
+        // CONFIGURAR FOCO INICIAL PARA DPAD
+        setupInitialFocus()
+    }
+
+    // ========== NOVO: CONFIGURAÇÃO DE FOCO INICIAL ==========
+    private fun setupInitialFocus() {
+        binding.root.postDelayed({
+            // Dar foco inicial ao primeiro botão de controle ou canal
+            binding.recyclerChannels.requestFocus()
+            println("StreamingActivity: Foco inicial configurado para RecyclerView")
+        }, 500)
+    }
+
+    // ========== NOVO: MANIPULAÇÃO DE TECLAS DPAD ==========
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_CENTER,
+            KeyEvent.KEYCODE_ENTER -> {
+                // Tratar OK/Enter do controle remoto
+                println("StreamingActivity: DPad CENTER/ENTER pressionado")
+                handleDPadCenter()
+                true
+            }
+            KeyEvent.KEYCODE_DPAD_UP,
+            KeyEvent.KEYCODE_DPAD_DOWN,
+            KeyEvent.KEYCODE_DPAD_LEFT,
+            KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                // Permitir navegação normal do sistema
+                println("StreamingActivity: DPad direção: $keyCode")
+                super.onKeyDown(keyCode, event)
+            }
+            KeyEvent.KEYCODE_BACK -> {
+                // Tratar botão voltar
+                if (isFullScreen) {
+                    toggleFullScreen()
+                    true
+                } else {
+                    super.onKeyDown(keyCode, event)
+                }
+            }
+            KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE -> {
+                // Tratar play/pause do controle remoto
+                exoPlayer?.let { player ->
+                    if (player.isPlaying) player.pause() else player.play()
+                }
+                true
+            }
+            else -> super.onKeyDown(keyCode, event)
+        }
+    }
+
+    private fun handleDPadCenter() {
+        // Identificar qual elemento tem foco e executar ação
+        val focusedView = currentFocus
+        println("StreamingActivity: View com foco: ${focusedView?.id}")
+
+        when (focusedView?.id) {
+            binding.btnPlayPause.id -> binding.btnPlayPause.performClick()
+            binding.btnMute.id -> binding.btnMute.performClick()
+            binding.btnFullScreen.id -> binding.btnFullScreen.performClick()
+            binding.btnSkipChannel.id -> binding.btnSkipChannel.performClick()
+            binding.tabChannels.id -> switchToChannelsTab()
+            binding.tabInfo.id -> switchToInfoTab()
+            binding.btnPremiumBanner?.id -> showPremiumPopup()
+            binding.btnAdminAccess.id -> openAdminSettings()
+        }
+    }
+
+    private fun schedulePremiumPopup() {
+        println("StreamingActivity: Agendando pop-up premium para 4 segundos...")
+        premiumPopupHandler.postDelayed(showPremiumPopupRunnable, 4000)
+    }
+
+    private fun showPremiumPopup() {
+        println("StreamingActivity: Mostrando pop-up premium")
+        val intent = Intent(this, PremiumPopupActivity::class.java)
+        startActivity(intent)
     }
 
     // ========== MÉTODO PARA ABRIR CONFIGURAÇÕES ADMIN ==========
@@ -531,7 +619,7 @@ class StreamingActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@StreamingActivity)
             setHasFixedSize(true)
             setItemViewCacheSize(20)
-            // FORÇAR REMOÇÃO DE QUALQUER PADDING/MARGIN
+            // REMOVER QUALQUER PADDING/MARGIN
             setPadding(0, 0, 0, 0)
             clipToPadding = false
 
@@ -557,38 +645,20 @@ class StreamingActivity : AppCompatActivity() {
             binding.playerView.setPadding(0, 0, 0, 0)
         }
 
-        // APLICAR CONFIGURAÇÕES CUSTOMIZADAS
-        applySidePanelConfiguration()
-    }
-
-    private fun applySidePanelConfiguration() {
+        // REMOVER A APLICAÇÃO DE PADDING DIREITO - AGORA O PAINEL LATERAL NÃO TEM PADDING EXTRA
         binding.sidePanel.post {
             val sidePanelParams = binding.sidePanel.layoutParams as LinearLayout.LayoutParams
-            sidePanelParams.leftMargin = -16 // Margem negativa para sobrepor
+            sidePanelParams.leftMargin = 0
+            sidePanelParams.rightMargin = 0
             binding.sidePanel.layoutParams = sidePanelParams
 
-            // USAR WINDOWINSETS PARA CALCULAR PADDING CORRETO
-            binding.sidePanel.setOnApplyWindowInsetsListener { view, insets ->
-                val systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars())
-                val navigationBarWidth = systemBars.right
-                val additionalPadding = (16 * resources.displayMetrics.density).toInt() // 16dp extra
-                val totalRightPadding = navigationBarWidth + additionalPadding
-
-                binding.sidePanel.setPadding(8, 0, totalRightPadding, 0)
-
-                println("StreamingActivity: WindowInsets - navigationBarWidth: $navigationBarWidth, totalPadding: $totalRightPadding")
-
-                insets
-            }
-
-            // FALLBACK: Se WindowInsets não funcionar, usar padding maior
-            val fallbackPadding = (48 * resources.displayMetrics.density).toInt() // 48dp
-            binding.sidePanel.setPadding(8, 0, fallbackPadding, 0)
+            // REMOVER QUALQUER PADDING DO SIDEPANEL
+            binding.sidePanel.setPadding(0, 0, 0, 0)
 
             // FORÇAR ATUALIZAÇÃO DO LAYOUT
             binding.sidePanel.requestLayout()
 
-            println("StreamingActivity: Configurações do sidePanel aplicadas com fallback padding: $fallbackPadding")
+            println("StreamingActivity: Configurações do sidePanel aplicadas SEM padding direito")
         }
     }
 
@@ -718,7 +788,7 @@ class StreamingActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.tvAppName.text = "Cinema Elite Player"
+        binding.tvAppName.text = "CineDuo Stream Media 2026"
 
         binding.playerContainer.setOnClickListener {
             if (isControlsVisible) hideControls() else showControls()
@@ -765,6 +835,10 @@ class StreamingActivity : AppCompatActivity() {
 
         binding.tabChannels.setOnClickListener { switchToChannelsTab() }
         binding.tabInfo.setOnClickListener { switchToInfoTab() }
+
+        binding.btnPremiumBanner?.setOnClickListener {
+            showPremiumPopup()
+        }
 
         // ========== CONFIGURAR CLIQUE NA ENGRENAGEM ==========
         binding.btnAdminAccess.setOnClickListener {
@@ -861,8 +935,8 @@ class StreamingActivity : AppCompatActivity() {
         binding.playerContainer.layoutParams = layoutParams
         binding.btnFullScreen.setImageResource(R.drawable.ic_fullscreen)
 
-        // REAPLICAR CONFIGURAÇÕES CUSTOMIZADAS APÓS SAIR DO FULLSCREEN - INLINE
-        println("StreamingActivity: Saindo do fullscreen - reaplicando configurações")
+        // REAPLICAR CONFIGURAÇÕES SEM PADDING DIREITO APÓS SAIR DO FULLSCREEN
+        println("StreamingActivity: Saindo do fullscreen - reaplicando configurações sem padding direito")
 
         // Configuração do player inline
         binding.playerContainer.post {
@@ -875,8 +949,16 @@ class StreamingActivity : AppCompatActivity() {
             println("StreamingActivity: Configurações do player reaplicadas")
         }
 
-        // Configuração da playlist
-        applySidePanelConfiguration()
+        // Configuração da playlist SEM padding direito
+        binding.sidePanel.post {
+            val sidePanelParams = binding.sidePanel.layoutParams as LinearLayout.LayoutParams
+            sidePanelParams.leftMargin = 0
+            sidePanelParams.rightMargin = 0
+            binding.sidePanel.layoutParams = sidePanelParams
+            binding.sidePanel.setPadding(0, 0, 0, 0)
+            binding.sidePanel.requestLayout()
+            println("StreamingActivity: Configurações do sidePanel reaplicadas SEM padding direito")
+        }
     }
 
     // ========== LIFECYCLE METHODS ==========
@@ -890,6 +972,15 @@ class StreamingActivity : AppCompatActivity() {
         super.onResume()
         println("StreamingActivity: onResume() - Retomando reprodução")
         exoPlayer?.playWhenReady = true
+
+        binding.root.postDelayed({
+            // REAPLICAR CONFIGURAÇÕES SEM PADDING DIREITO
+            binding.recyclerChannels.requestLayout()
+            binding.sidePanel.post {
+                binding.sidePanel.setPadding(0, 0, 0, 0)
+                binding.sidePanel.requestLayout()
+            }
+        }, 100) // 100ms de delay para garantir que a UI estabilizou
     }
 
     override fun onPause() {
@@ -907,6 +998,9 @@ class StreamingActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         println("StreamingActivity: === DESTRUINDO STREAMING ACTIVITY ===")
+
+        // Cancelar pop-up premium se ainda não foi mostrado
+        premiumPopupHandler.removeCallbacks(showPremiumPopupRunnable)
 
         // Desregistrar LOCAL broadcast receiver (sempre seguro)
         try {

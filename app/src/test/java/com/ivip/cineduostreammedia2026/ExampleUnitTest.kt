@@ -1,4 +1,4 @@
-package com.ivip.cinemaeliteplayer
+package com.ivip.cineduostreammedia2026
 
 import org.junit.Test
 

@@ -1,11 +1,10 @@
-package com.ivip.cinemaeliteplayer
+package com.ivip.cineduostreammedia2026
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ivip.cinemaeliteplayer.R
 
 class ChannelsAdapter(
     private val channels: List<Channel>,

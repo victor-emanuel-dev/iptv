@@ -1,4 +1,4 @@
-package com.ivip.cinemaeliteplayer
+package com.ivip.cineduostreammedia2026
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.ivip.cinemaeliteplayer.databinding.ActivityAdminBinding
+import com.ivip.cineduostreammedia2026.databinding.ActivityAdminBinding
 import kotlinx.coroutines.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -549,7 +549,7 @@ class AdminActivity : AppCompatActivity() {
     private fun exportConfiguration() {
         val configPrefs = getSharedPreferences("IPTVConfig", MODE_PRIVATE)
         val config = """
-            Configuração Family Cinema Pro
+            Configuração Cimena Elite Pro
             ===========================
             Host/DNS: ${configPrefs.getString("hostDns", "")}
             Usuário: ${configPrefs.getString("username", "")}

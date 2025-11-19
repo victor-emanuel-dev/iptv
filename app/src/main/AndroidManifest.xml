@@ -23,6 +23,7 @@
         android:required="false" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -37,7 +38,7 @@
 
         <!-- Activity Principal (Splash + Navegação) -->
         <activity
-            android:name="com.ivip.cinemaeliteplayer.MainActivity"
+            android:name="com.ivip.cineduostreammedia2026.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Splash"
@@ -51,7 +52,7 @@
 
         <!-- Activity de Streaming Premium -->
         <activity
-            android:name="com.ivip.cinemaeliteplayer.StreamingActivity"
+            android:name="com.ivip.cineduostreammedia2026.StreamingActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
@@ -62,23 +63,23 @@
 
         <!-- Activity de Autenticação Admin -->
         <activity
-            android:name="com.ivip.cinemaeliteplayer.AdminAuthActivity"
+            android:name="com.ivip.cineduostreammedia2026.AdminAuthActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.cinemaeliteplayer.StreamingActivity" />
+            android:parentActivityName="com.ivip.cineduostreammedia2026.StreamingActivity" />
 
         <!-- Activity de Administração -->
         <activity
-            android:name="com.ivip.cinemaeliteplayer.AdminActivity"
+            android:name="com.ivip.cineduostreammedia2026.AdminActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.cinemaeliteplayer.AdminAuthActivity" />
+            android:parentActivityName="com.ivip.cineduostreammedia2026.AdminAuthActivity" />
 
         <!-- Activity de Pop-up Premium -->
         <activity
-            android:name="com.ivip.cinemaeliteplayer.PremiumPopupActivity"
+            android:name="com.ivip.cineduostreammedia2026.PremiumPopupActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Dialog"

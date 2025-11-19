@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Cinema Elite Player"
+rootProject.name = "CineDuo Stream Media 2026"
 include(":app")

@@ -2,18 +2,19 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.ivip.cinemaeliteplayer"
+    namespace = "com.ivip.cineduostreammedia2026"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.ivip.cinemaeliteplayer"
+        applicationId = "com.ivip.cineduostreammedia2026"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 7
+        versionName = "7.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,13 +32,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
     buildFeatures {
         compose = true
         dataBinding = true
-        viewBinding = true  // ← ESTA LINHA ESTAVA FALTANDO!
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -50,96 +53,88 @@ android {
 }
 
 dependencies {
-    // === DEPENDÊNCIAS CORE ===
-    implementation(libs.androidx.core.ktx.v1120)
+    // Firebase BoM
+    implementation (platform("com.google.firebase:firebase-bom:34.6.0"))
+
+    implementation("com.google.firebase:firebase-config-ktx:22.1.2")
+    implementation("com.google.firebase:firebase-analytics-ktx:22.5.0")
+
+    // CORE & APPCOMPAT
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.splashscreen)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+    implementation(libs.material)
+
+    // ACTIVITY & FRAGMENT & LIFECYCLE
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx.v270)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    // === MATERIAL DESIGN 3 ===
-    implementation(libs.material)
+    // UI & LAYOUT
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.swiperefreshlayout)
 
-    // === SPLASH SCREEN API ===
-    implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.foundation.android)
-    implementation(libs.androidx.material3.android)
+    // COMPOSE
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 
-    // === MEDIA3 EXOPLAYER (PREMIUM) ===
-    val media3Version = "1.2.0"
-    implementation(libs.androidx.media3.exoplayer)
-    implementation(libs.androidx.media3.exoplayer.hls)
-    implementation(libs.androidx.media3.exoplayer.dash)
-    implementation(libs.androidx.media3.ui)
+    // MEDIA3 (EXOPLAYER)
     implementation(libs.androidx.media3.common)
     implementation(libs.androidx.media3.datasource)
     implementation(libs.androidx.media3.datasource.okhttp)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.exoplayer.dash)
+    implementation(libs.androidx.media3.exoplayer.hls)
+    implementation(libs.androidx.media3.ui)
 
-    // === NETWORKING ===
-    val okhttpVersion = "4.12.0"
+    // NETWORKING (OKHTTP & RETROFIT)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
-    val retrofitVersion = "2.9.0"
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.adapter.rxjava3)
+    implementation(libs.gson)
 
-    // === COROUTINES ===
-    val coroutinesVersion = "1.7.3"
+    // COROUTINES
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
 
-    // === BROADCAST MANAGER ===
+    // UTILITIES
     implementation(libs.androidx.localbroadcastmanager)
-
-    // === GSON PARA JSON ===
-    implementation(libs.gson)
-
-    // === TRABALHO EM BACKGROUND ===
     implementation(libs.androidx.work.runtime.ktx)
-
-    // === PERMISSIONS ===
-    implementation(libs.androidx.activity.compose.v182)
-
-    // === NAVEGAÇÃO ===
-    val navVersion = "2.7.6"
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
-    // === PREFERENCES ===
     implementation(libs.androidx.preference.ktx)
-
-    // === SECURITY (OPCIONAL) ===
     implementation(libs.androidx.security.crypto)
+    implementation(libs.glide)
+    // annotationProcessor(libs.glide.compiler) // Se estiver usando Glide v4
+    implementation(libs.timber)
 
-    // === ROOM DATABASE (PARA CACHE FUTURO) ===
-    val roomVersion = "2.6.1"
+    // ROOM
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    // ksp(libs.androidx.room.compiler) // Use KSP em vez de kapt se possível
 
-    // === DESUGARING (JAVA 8+) ===
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
-    // === TESTES ===
+    // TESTING
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
     testImplementation(libs.kotlinx.coroutines.test)
-
-    androidTestImplementation(libs.androidx.junit.v115)
-    androidTestImplementation(libs.androidx.espresso.core.v351)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.androidx.rules)
-
-    // === LEAK CANARY (DEBUG) ===
-    debugImplementation(libs.leakcanary.android)
-
-    // === LOGGING (DEBUG) ===
-    debugImplementation(libs.timber)
 }

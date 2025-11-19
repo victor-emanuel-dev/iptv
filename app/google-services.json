@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "743701030224",
+    "project_id": "cineduo-stream-media-2026",
+    "storage_bucket": "cineduo-stream-media-2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743701030224:android:b2f2a1cf9cc1d30eb17855",
+        "android_client_info": {
+          "package_name": "com.ivip.cineduostreammedia2026"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjdbjPEv7gT_VsskxUmppXoJQ_Ojh5_AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
