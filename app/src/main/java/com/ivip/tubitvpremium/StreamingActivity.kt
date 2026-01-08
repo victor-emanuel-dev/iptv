@@ -1,4 +1,4 @@
-package com.ivip.cineduostreammedia2026
+package com.ivip.tvexpressmedia
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -29,7 +29,7 @@ import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.hls.HlsMediaSource
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ivip.cineduostreammedia2026.databinding.ActivityStreamingBinding
+import com.ivip.tvexpressmedia.databinding.ActivityStreamingBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -788,7 +788,7 @@ class StreamingActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.tvAppName.text = "CineDuo Stream Media 2026"
+        binding.tvAppName.text = "Express Media Player"
 
         binding.playerContainer.setOnClickListener {
             if (isControlsVisible) hideControls() else showControls()

@@ -1,4 +1,4 @@
-package com.ivip.cineduostreammedia2026
+package com.ivip.tvexpressmedia
 
 import org.junit.Test
 

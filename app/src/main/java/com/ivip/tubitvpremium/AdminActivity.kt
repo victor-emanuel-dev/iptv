@@ -1,4 +1,4 @@
-package com.ivip.cineduostreammedia2026
+package com.ivip.tvexpressmedia
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.ivip.cineduostreammedia2026.databinding.ActivityAdminBinding
+import com.ivip.tvexpressmedia.databinding.ActivityAdminBinding
 import kotlinx.coroutines.*
 import java.io.BufferedReader
 import java.io.InputStreamReader

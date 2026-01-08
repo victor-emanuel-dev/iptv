@@ -1,4 +1,4 @@
-package com.ivip.cineduostreammedia2026
+package com.ivip.tvexpressmedia
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.ivip.cineduostreammedia2026.databinding.ActivityPremiumPopupBinding
+import com.ivip.tvexpressmedia.databinding.ActivityPremiumPopupBinding
 
 class PremiumPopupActivity : AppCompatActivity() {
 
@@ -155,7 +155,7 @@ class PremiumPopupActivity : AppCompatActivity() {
     private fun openWhatsApp(phone: String) {
         Log.d(TAG, "📱 Abrindo WhatsApp: $phone")
         runCatching {
-            val message = "Olá! Gostaria de ativar o acesso premium no CineDuo Stream Media 2026"
+            val message = "Olá! Gostaria de ativar o acesso premium no Express Media Player"
             val url = "https://api.whatsapp.com/send?phone=$phone&text=${Uri.encode(message)}"
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }.onFailure { e ->
