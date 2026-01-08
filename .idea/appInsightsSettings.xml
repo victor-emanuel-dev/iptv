@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.ivip.cineduostreammedia2026" />
-                  <option name="mobileSdkAppId" value="1:743701030224:android:b2f2a1cf9cc1d30eb17855" />
-                  <option name="projectId" value="cineduo-stream-media-2026" />
-                  <option name="projectNumber" value="743701030224" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

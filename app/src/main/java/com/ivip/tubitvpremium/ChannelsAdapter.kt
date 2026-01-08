@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import android.view.LayoutInflater
 import android.view.View

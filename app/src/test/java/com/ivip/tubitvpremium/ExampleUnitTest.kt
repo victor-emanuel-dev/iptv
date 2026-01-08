@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import org.junit.Test
 

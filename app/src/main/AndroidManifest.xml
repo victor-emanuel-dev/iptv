@@ -38,7 +38,7 @@
 
         <!-- Activity Principal (Splash + Navegação) -->
         <activity
-            android:name="com.ivip.cineduostreammedia2026.MainActivity"
+            android:name="com.ivip.tubitvpremium.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Splash"
@@ -52,7 +52,7 @@
 
         <!-- Activity de Streaming Premium -->
         <activity
-            android:name="com.ivip.cineduostreammedia2026.StreamingActivity"
+            android:name="com.ivip.tubitvpremium.StreamingActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
@@ -63,23 +63,23 @@
 
         <!-- Activity de Autenticação Admin -->
         <activity
-            android:name="com.ivip.cineduostreammedia2026.AdminAuthActivity"
+            android:name="com.ivip.tubitvpremium.AdminAuthActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.cineduostreammedia2026.StreamingActivity" />
+            android:parentActivityName="com.ivip.tubitvpremium.StreamingActivity" />
 
         <!-- Activity de Administração -->
         <activity
-            android:name="com.ivip.cineduostreammedia2026.AdminActivity"
+            android:name="com.ivip.tubitvpremium.AdminActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.cineduostreammedia2026.AdminAuthActivity" />
+            android:parentActivityName="com.ivip.tubitvpremium.AdminAuthActivity" />
 
         <!-- Activity de Pop-up Premium -->
         <activity
-            android:name="com.ivip.cineduostreammedia2026.PremiumPopupActivity"
+            android:name="com.ivip.tubitvpremium.PremiumPopupActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Dialog"

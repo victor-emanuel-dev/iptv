@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.ivip.tvexpressmedia.databinding.ActivityPremiumPopupBinding
+import com.ivip.tubitvpremium.databinding.ActivityPremiumPopupBinding
 
 class PremiumPopupActivity : AppCompatActivity() {
 
@@ -155,7 +155,7 @@ class PremiumPopupActivity : AppCompatActivity() {
     private fun openWhatsApp(phone: String) {
         Log.d(TAG, "📱 Abrindo WhatsApp: $phone")
         runCatching {
-            val message = "Olá! Gostaria de ativar o acesso premium no Express Media Player"
+            val message = "Olá! Gostaria de ativar o acesso premium no TubiTV Premium"
             val url = "https://api.whatsapp.com/send?phone=$phone&text=${Uri.encode(message)}"
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }.onFailure { e ->

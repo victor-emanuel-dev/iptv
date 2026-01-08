@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import android.app.Application
 import android.util.Log

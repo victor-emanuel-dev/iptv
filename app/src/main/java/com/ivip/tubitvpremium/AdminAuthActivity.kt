@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.ivip.tvexpressmedia.databinding.ActivityAdminAuthBinding
+import com.ivip.tubitvpremium.databinding.ActivityAdminAuthBinding
 
 class AdminAuthActivity : AppCompatActivity() {
 

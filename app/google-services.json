@@ -1,21 +1,97 @@
 {
   "project_info": {
-    "project_number": "743701030224",
-    "project_id": "cineduo-stream-media-2026",
-    "storage_bucket": "cineduo-stream-media-2026.firebasestorage.app"
+    "project_number": "739949540104",
+    "project_id": "gold-vip-28995",
+    "storage_bucket": "gold-vip-28995.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:743701030224:android:b2f2a1cf9cc1d30eb17855",
+        "mobilesdk_app_id": "1:739949540104:android:a33174c1c304264ea632bd",
         "android_client_info": {
-          "package_name": "com.ivip.cineduostreammedia2026"
+          "package_name": "com.ivip.doramax2026"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDjdbjPEv7gT_VsskxUmppXoJQ_Ojh5_AU"
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739949540104:android:bfa4a8474e0e3af9a632bd",
+        "android_client_info": {
+          "package_name": "com.ivip.familycinemapro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739949540104:android:f9b7f2c112f5bcdda632bd",
+        "android_client_info": {
+          "package_name": "com.ivip.goldvip"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739949540104:android:e715cc50deb56c14a632bd",
+        "android_client_info": {
+          "package_name": "com.ivip.tubitvpremium"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739949540104:android:9a16e9b3a26dcccda632bd",
+        "android_client_info": {
+          "package_name": "com.ivip.tvexpressmedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
         }
       ],
       "services": {

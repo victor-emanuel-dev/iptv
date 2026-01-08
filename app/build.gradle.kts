@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    namespace = "com.ivip.cineduostreammedia2026"
+    namespace = "com.ivip.tubitvpremium"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.ivip.cineduostreammedia2026"
+        applicationId = "com.ivip.tubitvpremium"
         minSdk = 24
         targetSdk = 36
-        versionCode = 7
-        versionName = "7.0"
+        versionCode = 4
+        versionName = "5.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -54,7 +54,7 @@ android {
 
 dependencies {
     // Firebase BoM
-    implementation (platform("com.google.firebase:firebase-bom:34.6.0"))
+    implementation (platform("com.google.firebase:firebase-bom:34.7.0"))
 
     implementation("com.google.firebase:firebase-config-ktx:22.1.2")
     implementation("com.google.firebase:firebase-analytics-ktx:22.5.0")

@@ -1,4 +1,4 @@
-package com.ivip.tvexpressmedia
+package com.ivip.tubitvpremium
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -29,7 +29,7 @@ import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.hls.HlsMediaSource
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ivip.tvexpressmedia.databinding.ActivityStreamingBinding
+import com.ivip.tubitvpremium.databinding.ActivityStreamingBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -73,7 +73,7 @@ class StreamingActivity : AppCompatActivity() {
     private val showPremiumPopupRunnable = Runnable { showPremiumPopup() }
 
     companion object {
-        const val ACTION_CONFIG_CHANGED = "com.ivip.cinemaeliteplayer.CONFIG_CHANGED"
+        const val ACTION_CONFIG_CHANGED = "com.ivip.tubitvpremium.CONFIG_CHANGED"
 
         // 5 CANAIS GRATUITOS COM URLS TESTADAS E FUNCIONAIS
         val DEFAULT_FREE_CHANNELS = listOf(
@@ -788,7 +788,7 @@ class StreamingActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.tvAppName.text = "Express Media Player"
+        binding.tvAppName.text = "TubiTV Premium"
 
         binding.playerContainer.setOnClickListener {
             if (isControlsVisible) hideControls() else showControls()

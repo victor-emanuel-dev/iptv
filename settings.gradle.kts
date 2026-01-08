@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CineDuo Stream Media 2026"
+rootProject.name = "TubyTV Premium"
 include(":app")
