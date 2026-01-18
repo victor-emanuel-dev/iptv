@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TubiTV Premium</string>
-    <string name="epic_cinema_pro">TubiTV Premium</string>
+    <string name="app_name">IPTV Pemium 2026</string>
+    <string name="epic_cinema_pro">IPTV Pemium 2026</string>
     <string name="sua_tv_onde_quiser">Seu player de TV</string>
-    <string name="app_logo">Logo do TubiTV Premium</string>
+    <string name="app_logo">Logo do IPTV Pemium 2026</string>
 
     <!-- Tela de Login -->
     <string name="login_title">Entrar</string>
@@ -61,7 +61,7 @@
     <string name="nasa_channel_description">Canal oficial da NASA - Transmissão ao vivo</string>
 
     <!-- Acessibilidade -->
-    <string name="logo_description">Logo do TubiTV Premium</string>
+    <string name="logo_description">Logo do IPTV Pemium 2026</string>
     <string name="email_icon_description">Ícone de email</string>
     <string name="password_icon_description">Ícone de senha</string>
     <string name="live_indicator_description">Indicador de transmissão ao vivo</string>
@@ -140,7 +140,7 @@
     <string name="whatsapp_01">📱 WhatsApp 01: +55 27 99910-9882</string>
     <string name="whatsapp_02">📱 WhatsApp 02: +55 27 98891-1261</string>
     <string name="telegram">✈️ Telegram: +55 27 99509-7169</string>
-    <string name="whatsapp_message">Olá! Gostaria de ativar o acesso premium no TubiTV Premium</string>
+    <string name="whatsapp_message">Olá! Gostaria de ativar o acesso premium no IPTV Pemium 2026</string>
 
     <!-- Banner Premium -->
     <string name="premium_banner">👑 ACESSO PREMIUM ⭐⭐⭐⭐⭐</string>

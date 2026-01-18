@@ -64,9 +64,28 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:739949540104:android:d44b276214603622a632bd",
+        "android_client_info": {
+          "package_name": "com.ivip.iptvpremium2016"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvOAB4XdblOh1gZmjrerueeszXYmWnkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:739949540104:android:e715cc50deb56c14a632bd",
         "android_client_info": {
-          "package_name": "com.ivip.tubitvpremium"
+          "package_name": "com.ivip.iptvpremium2026"
         }
       },
       "oauth_client": [],

@@ -38,7 +38,7 @@
 
         <!-- Activity Principal (Splash + Navegação) -->
         <activity
-            android:name="com.ivip.tubitvpremium.MainActivity"
+            android:name="com.ivip.iptvpremium2016.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Splash"
@@ -52,7 +52,7 @@
 
         <!-- Activity de Streaming Premium -->
         <activity
-            android:name="com.ivip.tubitvpremium.StreamingActivity"
+            android:name="com.ivip.iptvpremium2016.StreamingActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
@@ -63,23 +63,23 @@
 
         <!-- Activity de Autenticação Admin -->
         <activity
-            android:name="com.ivip.tubitvpremium.AdminAuthActivity"
+            android:name="com.ivip.iptvpremium2016.AdminAuthActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.tubitvpremium.StreamingActivity" />
+            android:parentActivityName="com.ivip.iptvpremium2016.StreamingActivity" />
 
         <!-- Activity de Administração -->
         <activity
-            android:name="com.ivip.tubitvpremium.AdminActivity"
+            android:name="com.ivip.iptvpremium2016.AdminActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.NoActionBar"
-            android:parentActivityName="com.ivip.tubitvpremium.AdminAuthActivity" />
+            android:parentActivityName="com.ivip.iptvpremium2016.AdminAuthActivity" />
 
         <!-- Activity de Pop-up Premium -->
         <activity
-            android:name="com.ivip.tubitvpremium.PremiumPopupActivity"
+            android:name="com.ivip.iptvpremium2016.PremiumPopupActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.CinemaElitePlayer.Dialog"
